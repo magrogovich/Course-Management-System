@@ -50,7 +50,7 @@ This is a Java-based application to manage students, courses, and related functi
 2. Run the `Main` class with the following command:
 
    ```bash
-   java -cp src Main
+   java src.Main
    ```
 
 ## Notes
