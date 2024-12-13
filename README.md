@@ -1,84 +1,68 @@
 # Student Course Management System
 
-This project is a **Java-based Student Course Management System**. It uses object-oriented programming principles to manage students, courses, and their interactions. Below are the steps to compile and run the project.
+This is a Java-based application to manage students, courses, and related functionalities.
+
+## Project Structure
+
+```
+.
+├── README.md
+└── src
+    ├── Main.class
+    ├── Main.java
+    ├── models
+    │   ├── Course.class
+    │   ├── Course.java
+    │   ├── Student.class
+    │   ├── Student.java
+    │   ├── User.class
+    │   └── User.java
+    ├── services
+    │   ├── CourseService.class
+    │   ├── CourseService.java
+    │   ├── StudentService.class
+    │   └── StudentService.java
+    └── utils
+        ├── MenuUtils.class
+        └── MenuUtils.java
+```
 
 ## Prerequisites
 
-1. **Java Development Kit (JDK)**: Ensure JDK is installed on your system.
-   - Verify installation:
-     ```bash
-     java -version
-     javac -version
-     ```
-   - [Download JDK](https://www.oracle.com/java/technologies/javase-downloads.html) if not installed.
+- Install Java Development Kit (JDK) version 8 or higher.
+- Ensure `javac` (Java Compiler) and `java` (Java Runtime) are available in your `PATH`.
 
-2. **Directory Structure**: The project files should be organized as follows:
-   ```
-   StudentCourseManagementSystem/
-   └── src/
-       ├── Main.java
-       ├── User.java
-       ├── Student.java
-       ├── Course.java
-       ├── CourseService.java
-       ├── StudentService.java
-       └── MenuUtils.java
+## Compilation Instructions
+
+1. Open a terminal or command prompt.
+2. Navigate to the project root directory (where the `src` folder is located).
+3. Compile all Java files using the following command:
+
+   ```bash
+   javac src/**/*.java
    ```
 
-## How to Run
+   This will compile all `.java` files in the `src` directory and its subdirectories.
 
-### Step 1: Navigate to the Project Directory
+## Running the Application
 
-Open a terminal or command prompt and navigate to the root directory of the project:
-```bash
-cd path/to/StudentCourseManagementSystem
-```
+1. Navigate to the project root directory.
+2. Run the `Main` class with the following command:
 
-### Step 2: Compile the Java Files
+   ```bash
+   java -cp src Main
+   ```
 
-Compile all the Java files located in the `src` directory:
-```bash
-javac src/*.java
-```
+## Notes
 
-This will generate `.class` files in the `src` directory.
-
-### Step 3: Run the Application
-
-Run the `Main` class to start the program:
-```bash
-java -cp src Main
-```
-
-### Step 4: Using the Application
-
-Follow the on-screen menu prompts to perform actions like managing students, courses, and enrollments.
+- Make sure the `Main.java` file has the correct `package` declaration (or none if it is in the root directory).
+- The `-cp` flag specifies the `src` directory as the classpath.
 
 ## Troubleshooting
 
-1. **Error: Could not find or load main class src.Main**
-   - Ensure the `Main.java` file contains the correct package declaration (`package src;`).
-   - Ensure the directory structure matches the package declaration.
+- If you encounter errors such as `ClassNotFoundException`, ensure the directory structure matches the `package` declarations in your `.java` files.
+- Ensure all required `.java` files have been compiled successfully.
 
-2. **File Not Found Errors**
-   - Verify the directory structure and that all `.java` files are in the `src` folder.
+## Example Usage
 
-3. **Classpath Issues**
-   - Always specify the classpath using the `-cp` option when running the program.
-
-## Project Description
-
-This project implements a simple student course management system using object-oriented programming concepts such as:
-- Encapsulation
-- Inheritance
-- Polymorphism
-- Abstraction
-
-It includes the following features:
-- Add and remove students.
-- Add and remove courses.
-- Enroll students in courses.
-- Display all students and courses.
-
----
-Enjoy managing your students and courses efficiently! 😊
+After running the application, follow the on-screen menu to interact with the system. Use the menu options to manage students, courses, and more.
