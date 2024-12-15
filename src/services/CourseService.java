@@ -23,4 +23,9 @@ public class CourseService {
             course.displayDetails();
         }
     }
+
+    // Add this method to return the list of courses
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
 }

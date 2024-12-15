@@ -2,6 +2,8 @@ package src.utils;
 
 import src.services.CourseService;
 import src.services.StudentService;
+import src.models.Student;
+import src.models.Course;
 
 import java.util.Scanner;
 
@@ -74,7 +76,8 @@ public class MenuUtils {
             System.out.println("Student Management");
             System.out.println("1. Register Student");
             System.out.println("2. View Students");
-            System.out.println("3. Return to Main Menu");
+            System.out.println("3. Enroll in Course");
+            System.out.println("4. Return to Main Menu");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
@@ -88,11 +91,50 @@ public class MenuUtils {
                     System.out.println("Student registered successfully!");
                 }
                 case 2 -> studentService.displayStudents();
-                case 3 -> {
+                case 3 -> enrollInCourse(scanner);
+                case 4 -> {
                     return;
                 }
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
+    }
+
+    private static void enrollInCourse(Scanner scanner) {
+        System.out.print("Enter Student ID: ");
+        String studentId = scanner.next();
+        Student student = studentService.getStudentById(studentId);
+
+        if (student == null) {
+            System.out.println("Student not found!");
+            return;
+        }
+
+        System.out.println("Available Courses:");
+        courseService.displayCourses();
+
+        System.out.print("Enter Course ID to enroll in: ");
+        String courseId = scanner.next();
+        Course selectedCourse = findCourseById(courseId);
+
+        if (selectedCourse == null) {
+            System.out.println("Course not found!");
+        } else {
+            // Enroll the student in the selected course
+            if (studentService.enrollStudentInCourse(student, selectedCourse)) {
+                System.out.println("Successfully enrolled in: " + selectedCourse.getCourseName());
+            } else {
+                System.out.println("Failed to enroll in the course.");
+            }
+        }
+    }
+
+    private static Course findCourseById(String courseId) {
+        for (Course course : courseService.getCourses()) {
+            if (course.getCourseId().equals(courseId)) {
+                return course;
+            }
+        }
+        return null;
     }
 }

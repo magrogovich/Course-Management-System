@@ -1,6 +1,7 @@
 package src.services;
 
 import src.models.Student;
+import src.models.Course;
 import java.util.ArrayList;
 
 public class StudentService {
@@ -27,5 +28,14 @@ public class StudentService {
             }
         }
         return null;
+    }
+
+    // Add method for enrolling student in a course
+    public boolean enrollStudentInCourse(Student student, Course course) {
+        if (student != null && course != null) {
+            student.enrollInCourse(course.getCourseName());
+            return true;
+        }
+        return false;
     }
 }
